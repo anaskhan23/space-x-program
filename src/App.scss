@@ -1,0 +1,40 @@
+.App {
+	background: #f2f2f2;
+	padding-left: 10px;
+}
+
+.leftContainer {
+	width: 20%;
+	display: flex;
+}
+
+.rightContainer {
+	width: 80%;
+	display: flex;
+}
+main {
+	display: flex;
+}
+
+@media only screen and (max-width: 700px) {
+	//mobile
+	.leftContainer,
+	.rightContainer {
+		width: 100%;
+	}
+	main {
+		flex-direction: column;
+	}
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+	//tablet
+	.leftContainer {
+		width: 33%;
+	}
+}
+// @media (min-width: 1024px) and (max-width: 1440px) {
+// 	//desktop
+// 	.App {
+// 		width: 100vw;
+// 	}
+// }

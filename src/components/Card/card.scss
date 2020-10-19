@@ -1,0 +1,62 @@
+.card {
+	// width: 150px;
+	width: 20%;
+	// height: 31%;
+	background: white;
+	margin-left: 4%;
+	margin-bottom: 3%;
+}
+
+.card-img-top {
+	width: 85%;
+	margin: 7%;
+	background: #f2f2f2;
+}
+.container {
+	padding: 5px;
+	margin-top: -15%;
+	margin-left: 7%;
+}
+h5 {
+	color: #57629e;
+	font-size: 19px;
+	margin: 19px 0px 7px 4px;
+}
+table {
+	text-align: justify;
+}
+td {
+	color: #484f9c;
+	// word-break: break-word;
+}
+th {
+	width: 1px;
+}
+@media only screen and (max-width: 1024px) and (min-width: 700px) {
+	.card {
+		width: 45%;
+	}
+	.container {
+		margin-top: -9%;
+	}
+}
+@media only screen and (max-width: 700px) {
+	//mobile
+	.card {
+		width: 100%;
+		margin: 2%;
+	}
+	.container {
+		margin-top: -6%;
+	}
+}
+// @media (max-width: 1024px) and (min-width: 700px) {
+// 	//tablet
+
+// }
+// @media (min-width: 1024) and (max-width: 1440px) {
+// 	//desktop
+// 	.card {
+// 		width: 25%;
+// 	}
+// }
