@@ -1,9 +1,11 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import App from "./App";
+// setup file
+import { shallow } from "enzyme";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Main App", () => {
+	test("renders developer name", () => {
+		const wrapper = shallow(<App />);
+		expect(wrapper.find("h4").text()).toContain("Developed By: Anas Khan");
+	});
 });

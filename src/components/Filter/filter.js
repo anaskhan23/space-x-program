@@ -12,32 +12,62 @@ export default function Filter(props) {
 	});
 	const { passCardData } = props;
 
-	function getCardData(selectedButton) {
+	function getCardData(selectedButton, color) {
 		if (selectedButton === "launchTrue") {
 			setButtonState((prevState) => ({
 				...prevState,
 				launch: "true",
 			}));
+			if (color === "#7CBA01") {
+				setButtonState((prevState) => ({
+					...prevState,
+					launch: "",
+				}));
+			}
 		} else if (selectedButton === "launchFalse") {
 			setButtonState((prevState) => ({
 				...prevState,
 				launch: "false",
 			}));
+			if (color === "#7CBA01") {
+				setButtonState((prevState) => ({
+					...prevState,
+					launch: "",
+				}));
+			}
 		} else if (selectedButton === "landTrue") {
 			setButtonState((prevState) => ({
 				...prevState,
 				land: "true",
 			}));
+			if (color === "#7CBA01") {
+				setButtonState((prevState) => ({
+					...prevState,
+					land: "",
+				}));
+			}
 		} else if (selectedButton === "landFalse") {
 			setButtonState((prevState) => ({
 				...prevState,
 				land: "false",
 			}));
+			if (color === "#7CBA01") {
+				setButtonState((prevState) => ({
+					...prevState,
+					land: "",
+				}));
+			}
 		} else if (selectedButton >= 2006 || selectedButton <= 2020) {
 			setButtonState((prevState) => ({
 				...prevState,
 				year: selectedButton,
 			}));
+			if (color === "#7CBA01") {
+				setButtonState((prevState) => ({
+					...prevState,
+					year: "",
+				}));
+			}
 		}
 	}
 	useEffect(() => {
@@ -83,7 +113,7 @@ export default function Filter(props) {
 	];
 	return (
 		<>
-			<div className="filterContainer">
+			<div id="filter" className="filterContainer">
 				<h3>Filters</h3>
 				<div className="filterHeading">
 					<span>Launch Year</span>

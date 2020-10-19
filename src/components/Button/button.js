@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./button.scss";
 
 const Button = (props) => {
@@ -6,22 +6,32 @@ const Button = (props) => {
 
 	const [color, setColor] = useState("#c5e09b");
 
-	const handleClick = (e) => {
-		filterFunc(e.target.value);
+	const textBtn = useRef();
 
-		setColor("#7CBA01");
+	const handleClick = (e) => {
+		// textBtn.current.attributes.lastValue = e.target.value;
+
+		setColor(color === "#c5e09b" ? "#7CBA01" : "#c5e09b");
+
+		const buttons = textBtn.current.parentElement.children;
+
+		for (let i = 0; i < buttons.length; i++) {
+			//here you set all buttons to default color
+			buttons[i].style.backgroundColor = "#c5e09b";
+		}
+		textBtn.current.style.backgroundColor = "#7CBA01";
+		filterFunc(e.target.value, color);
 	};
 
 	return (
 		<button
+			id="filter-btn"
+			ref={textBtn}
 			type="button"
-			// onChange={handleChange}
 			title={buttonText}
 			onClick={handleClick}
 			style={{ background: color }}
 			value={buttonValue}
-			// checked={buttonState.year}
-			// name={buttonState.year}
 		>
 			{buttonText}
 		</button>

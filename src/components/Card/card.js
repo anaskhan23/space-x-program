@@ -23,7 +23,9 @@ export default function Card(props) {
 									{/* <td>{card.mission_id.join()}</td> */}
 									<td>
 										{card.mission_id.map((list) => (
-											<li key={list}>{list}</li>
+											<ul key={list}>
+												<li>{list}</li>
+											</ul>
 										))}
 									</td>
 								</tr>
@@ -42,10 +44,11 @@ export default function Card(props) {
 									<td>:</td>
 									<td>
 										{card.rocket.first_stage.cores[0]
-											.land_success
-											? card.rocket.first_stage.cores[0].land_success
-													.toString()
-													.toUpperCase()
+											.land_success === true
+											? "True"
+											: card.rocket.first_stage.cores[0]
+													.land_success === false
+											? "False"
 											: card.rocket.first_stage.cores[0]
 													.land_success}
 									</td>

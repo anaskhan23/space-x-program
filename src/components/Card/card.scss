@@ -5,6 +5,7 @@
 	background: white;
 	margin-left: 4%;
 	margin-bottom: 3%;
+	// padding: 2px;
 }
 
 .card-img-top {
@@ -31,6 +32,9 @@ td {
 }
 th {
 	width: 1px;
+}
+ul {
+	margin-left: -22%;
 }
 @media only screen and (max-width: 1024px) and (min-width: 700px) {
 	.card {
