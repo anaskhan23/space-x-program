@@ -50,6 +50,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Test
 
-Unit Testing done by Jest and Enzymes
+Unit Testing done by Jest and Enzyme
 
 ### `npm test`
