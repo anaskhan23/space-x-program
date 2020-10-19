@@ -24,5 +24,5 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 
 ## LightHouse Performance
-![](https://github.com/anaskhan23/react-pan-card-ocr/blob/master/Performance.jpg)
+![](https://github.com/anaskhan23/space-x-program/blob/master/Performance.PNG)
 
