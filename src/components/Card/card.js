@@ -20,7 +20,6 @@ export default function Card(props) {
 								<tr>
 									<th>Mission Id</th>
 									<td>:</td>
-									{/* <td>{card.mission_id.join()}</td> */}
 									<td>
 										{card.mission_id.map((list) => (
 											<ul key={list}>
@@ -37,7 +36,13 @@ export default function Card(props) {
 								<tr>
 									<th>Successful Launch</th>
 									<td>:</td>
-									<td>{card.launch_year}</td>
+									<td>
+										{card.launch_success === true
+											? "True"
+											: card.launch_success === false
+											? "False"
+											: card.launch_success}
+									</td>
 								</tr>
 								<tr>
 									<th>Successful Landing</th>

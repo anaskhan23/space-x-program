@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-// import useParams from "react-router-dom";
 import Button from "../Button/button";
 import axios from "axios";
 import "./filter.scss";
 
 export default function Filter(props) {
+	const { passCardData, queryString } = props;
+
 	const [buttonState, setButtonState] = useState({
 		year: "",
 		land: "",
 		launch: "",
 	});
-	const { passCardData } = props;
 
 	function getCardData(selectedButton, color) {
 		if (selectedButton === "launchTrue") {
@@ -70,9 +70,10 @@ export default function Filter(props) {
 			}
 		}
 	}
+
 	useEffect(() => {
 		getCardData();
-	}, []);
+	}, [passCardData, queryString]);
 
 	useEffect(() => {
 		const getValueFetch = async () => {
@@ -81,16 +82,30 @@ export default function Filter(props) {
 				land_success: buttonState ? buttonState.land : "",
 				launch_year: buttonState ? buttonState.year : "",
 			};
-			let res;
+
 			const baseUrl = `https://api.spacexdata.com/v3/launches`;
-			res = await axios.get(baseUrl, {
+			let res = await axios.get(baseUrl, {
 				params: {
 					limit: 100,
 					...buttonFilterParameters,
 				},
 			});
-			passCardData(res.data, buttonFilterParameters);
+
+			passCardData(res.data);
+
+			const qs = Object.keys(buttonFilterParameters)
+				.filter((item) => buttonFilterParameters[item])
+				.map(
+					(key) =>
+						buttonFilterParameters[key] &&
+						`${key}=${buttonFilterParameters[key]}`
+				)
+				.join("&");
+			queryString.push({
+				search: qs,
+			});
 		};
+
 		getValueFetch();
 	}, [buttonState]);
 
@@ -111,6 +126,7 @@ export default function Filter(props) {
 		2019,
 		2020,
 	];
+
 	return (
 		<>
 			<div id="filter" className="filterContainer">
